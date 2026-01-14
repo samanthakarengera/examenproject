@@ -13,4 +13,4 @@ Het project focust op het beheer van passagiers, personeel, treinen, reizen en t
 - Tickets verkopen en raadplegen
 - Boardinglijst afdrukken naar tekstbestand
 
-CHATGPT gebruikt voor methode aan te maken om boardingslijst af te drukken (PrintWriter)
+CHATGPT gebruikt voor methode aan te maken om boardingslijst af te drukken (PrintWriter, DateTimeFormatter)
