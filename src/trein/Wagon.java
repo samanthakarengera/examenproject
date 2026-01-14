@@ -1,12 +1,12 @@
 package trein;
 
 public class Wagon {
-    private int stoelen;
+    private int capaciteit;
 
-    public  Wagon(int stoelen) {
-        this.stoelen = stoelen;
+    public  Wagon(int capaciteit) {
+        this.capaciteit = capaciteit;
     }
-    public int getStoelen() {
-        return stoelen;
+    public int getCapaciteit() {
+        return capaciteit;
     }
 }
