@@ -18,7 +18,9 @@ public class Reis {
     private List<Personeel> personeel = new ArrayList<>();
     private List<Ticket> tickets = new ArrayList<>();
 
-    public Reis(String vertrekStation, String aankomstStation, LocalDateTime datumTijd) {
+    public Reis(String vertrekStation,
+                String aankomstStation,
+                LocalDateTime datumTijd) {
         this.vertrekStation = vertrekStation;
         this.aankomstStation = aankomstStation;
         this.datumTijd = datumTijd;

@@ -9,7 +9,11 @@ public class Persoon {
     private String email;
     private LocalDate geboortedatum;
 
-    public Persoon(String voornaam, String achternaam, String rijksregisternummer, String email, LocalDate geboortedatum) {
+    public Persoon(String voornaam,
+                   String achternaam,
+                   String rijksregisternummer,
+                   String email,
+                   LocalDate geboortedatum) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.rijksregisternummer = rijksregisternummer;

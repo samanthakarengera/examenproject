@@ -8,7 +8,9 @@ public class Ticket {
     private Reis reis;
     private String klasse;
 
-    public Ticket(Passagier passagier, Reis reis, String klasse){
+    public Ticket(Passagier passagier,
+                  Reis reis,
+                  String klasse){
         this.passagier = passagier;
         this.reis = reis;
         this.klasse = klasse;
