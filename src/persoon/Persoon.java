@@ -32,4 +32,8 @@ public class Persoon {
     public String getEmail() {
         return email;
     }
+
+    public LocalDate getGeboortedatum() {
+        return geboortedatum;
+    }
 }

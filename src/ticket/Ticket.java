@@ -4,48 +4,39 @@ import persoon.Passagier;
 import reis.Reis;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 //houdt info van 1 ticket bij (passagier, reis, klasse, datum aankoop)
-public class Ticket {
-    private Passagier passagier;
-    private Reis reis;
-    private String klasse;
-    private LocalDate datumAankoop;
+    public class Ticket {
+        private Passagier passagier;
+        private Reis reis;
+        private String klasse; // "Eerste" of "Tweede"
 
+        public Ticket(Passagier passagier, Reis reis) {
+            this.passagier = passagier;
+            this.reis = reis;
+            this.klasse = "Tweede"; // default
+        }
 
-    public Ticket(Passagier passagier,
-                  Reis reis,
-                  String klasse){
-        this.passagier = passagier;
-        this.reis = reis;
-        this.klasse = klasse;
-        this.datumAankoop = LocalDate.now();
-    }
-    public Passagier getPassagier() {
-        return passagier;
-    }
-    public Reis getReis() {
-        return reis;
-    }
+        public void printTicket() {
+            System.out.println("Ticket voor: " + passagier.getVoornaam() + " " + passagier.getAchternaam());
+            System.out.println("Reis: " + reis.vertrekStation() + " -> " + reis.aankomstStation());
+            System.out.println("Klasse: " + klasse);
+            System.out.println("Ticket aangekocht op: " + LocalDateTime.now());
+        }
+        //ticketbeheer
+        private List<Ticket> tickets = new ArrayList<>(); //lijst ticket
+
     public String getKlasse() {
         return klasse;
     }
-    public LocalDate getDatumAankoop() {
-        return datumAankoop;
+    public String getPassagier() {
+        return passagier.getVoornaam();
+    }
+    public String getEmail(){
+        return email;
+    }
     }
 
-    @Override
-    public String toString() {
-        return "Ticket{" +
-                " passagier = " + passagier.getVoornaam() + " " + passagier.getAchternaam() +
-                ", reis = " + reis.vertrekStation() + " -> " + reis.aankomstStation() +
-                ", klasse = " + klasse +
-                ", datum aankoop = " + datumAankoop + " }";
-    }
 
-    //ticketbeheer
-    private List<Ticket> tickets = new ArrayList<>(); //lijst ticket
-
-
-}

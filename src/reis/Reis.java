@@ -13,7 +13,60 @@ import trein.Trein;
 import ticket.Ticket;
 // houdt info over de reis, lijst van tickets, verkoopt tickets, maakt boardinglijst
 public class Reis {
-    private String vertrekStation;
+
+        private String vertrekStation;
+        private String aankomstStation;
+        private String datumTijd;
+        private Trein trein;
+        private List<Ticket> tickets = new ArrayList<>(); // <-- Belangrijk
+
+        public Reis(String vertrek, String aankomst, String datumTijd, Trein trein) {
+            this.vertrekStation = vertrek;
+            this.aankomstStation = aankomst;
+            this.datumTijd = datumTijd;
+            this.trein = trein;
+        }
+
+        public String getVertrekStation() { return vertrekStation; }
+        public String getAankomstStation() { return aankomstStation; }
+        public String getDatumTijd() { return datumTijd; }
+        public Trein getTrein() { return trein; }
+
+        // Tickets
+        public void voegTicketToe(Ticket t) { tickets.add(t); }
+        public List<Ticket> getTickets() { return tickets; }
+
+
+    //boardinglijst afdrukken
+    public void printBoardinglijst() throws IOException {
+
+        String bestandsNaam = vertrekStation + "_"
+                + aankomstStation + "_"
+                + LocalDate.now() + ".txt";
+        PrintWriter writer = new PrintWriter(new FileWriter(bestandsNaam));
+
+        writer.println("Boardinglijst");
+        writer.println("Reis : " + vertrekStation + " -> " + aankomstStation);
+        writer.println("Vertrektijd: " + LocalDate.now());
+        writer.println("----------------------------------");
+
+        for (Ticket ticket : tickets) {
+            Passagier passagier = ticket.getPassagier();
+            writer.println(
+                    passagier.getVoornaam() + " "
+                            + passagier.getAchternaam() + " "
+                            +  " | Klasse: " + ticket.getKlasse()
+            );
+        }
+        writer.close(); // sluit het bestand
+        System.out.println("Boardinglijst opgeslagen als: " + bestandsNaam);
+        for (Ticket t: tickets){
+            System.out.println("Dit wordt automatisch verzonden naar " + t.getPassagier().getEmail());
+        }
+
+
+    }
+    /*private String vertrekStation;
     private String aankomstStation;
     private LocalDateTime vertrekTijd;
     private Trein trein;
@@ -32,7 +85,7 @@ public class Reis {
         this.trein = trein;
         this.personeel = personeel;
         this.tickets = new ArrayList<>();
-        this.maxPlaatsen = trein.getAantalWagons();
+
     }
 
     public String vertrekStation() {
@@ -55,6 +108,11 @@ public class Reis {
         return personeel;
     }
 
+
+    public void voegTicketToe(Ticket t) {
+        tickets.add(t);
+
+    }
     public List<Ticket> getTickets() {
         return tickets;
     }
@@ -102,5 +160,5 @@ public class Reis {
 
 
 
-    }
-}
+    } */
+
