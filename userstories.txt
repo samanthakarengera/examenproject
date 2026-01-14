@@ -1,0 +1,52 @@
+User stories
+Als passagier wil ik mezelf kunnen registreren via het menu zodat ik het systeem kan gebruiken.
+Acceptatiecriteria:
+Given: De passagier bevindt zich in het registratiemenu
+When: De passagier voert een voornaam, achternaam, e-mailadres, rijksregisternummer, geboortedatum en wachtwoord in.
+Then: De passagier wordt succesvol geregistreerd in het systeem
+When: De passagier voert een rijksregisternummer of e-mailadres in dat al bestaat.
+Then: De passagier krijgt een foutmelding en de registratie wordt afgebroken.
+
+Als passagier wil ik kunnen inloggen zodat ik toegang krijg tot treinreizen en mijn persoonlijke gegevens.
+	Acceptatiecriteria:
+	Given: De passagier bevindt zich in het loginmenu.
+When: De passagier voert een geldig rijksregisternummer en correct wachtwoord in.
+Then: De passagier wordt ingelogd.
+When: De passagier voert een ongeldig rijksregisternummer of fout wachtwoord in.
+Then: De passagier krijgt een foutmelding en blijft in het loginmenu.
+
+Als passagier wil ik beschikbare reizen kunnen bekijken zodat ik een trein kan nemen.
+Acceptatiecriteria:
+Given: De passagier is ingelogd.
+When: De passagier kiest voor “Beschikbare reizen tonen” in het menu
+Then: Alle beschikbare reizen worden weergegeven.
+
+Als passagier wil ik een reis kunnen selecteren uit een menu zodat ik een ticket kan raadplegen of aankopen.
+Acceptatiecriteria:
+Given: De passagier bekijkt de lijst van beschikbare reizen.
+When: De passagier kiest een geldige reis uit het menu.
+Then: De geselecteerde reis wordt bevestigd.
+
+Als passagier wil ik mijn ticket kunnen bekijken zodat ik mijn reisgegevens kan raadplegen.
+Acceptatiecriteria:
+Given: De passagier is ingelogd en heeft een ticket.
+When: De passagier kiest voor “Mijn ticket bekijken”.
+Then: De reisgegevens (klasse, perron, station, uur, datum, type trein) worden weergegeven.
+Given: De passagier is ingelogd maar heeft geen ticket.
+When: De passagier kiest voor “Mijn ticket bekijken”.
+Then: De passagier krijgt een melding dat er geen ticket beschikbaar is.
+
+Als passagier wil ik een overzicht van mijn reizen kunnen bekijken zodat ik weet welke reizen ik gepland heb.
+Acceptatiecriteria: 
+Given: De passagier is ingelogd.
+When: De passagier kiest voor “Mijn reizen bekijken”
+Then: Alle gekoppelde reizen worden weergegeven.
+
+Als passagier wil ik mijn persoonlijke gegevens kunnen aanpassen zodat mijn informatie correct blijft.
+Acceptatiecriteria:
+Given: De passagier is ingelogd en klikt op “Persoonlijke gegevens aanpassen”
+When: De passagier voert nieuwe persoonlijke gegevens in.
+Then: De gewijzigde gegevens worden opgeslagen.
+When: De passagier voert ongeldige gegevens in.
+Then: De passagier krijgt een foutmelding en de gegevens worden niet aangepast.
+
