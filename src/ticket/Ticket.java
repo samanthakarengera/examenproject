@@ -11,7 +11,8 @@ import java.util.List;
     public class Ticket {
         private Passagier passagier;
         private Reis reis;
-        private String klasse; // "Eerste" of "Tweede"
+        private String klasse;
+        private String email;// "Eerste" of "Tweede"
 
         public Ticket(Passagier passagier, Reis reis) {
             this.passagier = passagier;
@@ -21,7 +22,7 @@ import java.util.List;
 
         public void printTicket() {
             System.out.println("Ticket voor: " + passagier.getVoornaam() + " " + passagier.getAchternaam());
-            System.out.println("Reis: " + reis.vertrekStation() + " -> " + reis.aankomstStation());
+            System.out.println("Reis: " + reis.getVertrekStation() + " -> " + reis.getAankomstStation());
             System.out.println("Klasse: " + klasse);
             System.out.println("Ticket aangekocht op: " + LocalDateTime.now());
         }

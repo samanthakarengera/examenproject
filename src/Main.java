@@ -21,14 +21,11 @@ public class Main {
     Trein trein1 = new Trein("Class 373", 12, 80);
     Trein trein2 = new Trein("Class 374", 14, 80);
 
-    Reis reis1 = new Reis("Brussel", "Parijs", LocalDateTime.of(2026,03,05,12,30), trein1, personeelLijst);
-    Reis reis2 = new Reis("Amsterdam", "Milaan", LocalDateTime.of(2026,03,04,15,30), trein2, personeelLijst);
+    Reis reis1 = new Reis("Brussel", "Parijs", LocalDateTime.of(2026,03,05,12,30), trein1);
+    Reis reis2 = new Reis("Amsterdam", "Milaan", LocalDateTime.of(2026,03,04,15,30), trein2);
 
 
-reizenLijst.add(reis1);
-reizenLijst.add(reis2);
-
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
 
         while (true) {
             System.out.println("\n--- EUROMOON HOOFDMENU ---");
@@ -139,11 +136,8 @@ reizenLijst.add(reis2);
                     break;
 
                 case "3":
-                    if (p.voegTicketToe() != null) {
-                        p.getTickets().printTicket();
-                    } else {
-                        System.out.println("Geen ticket beschikbaar.");
-                    }
+
+
                     break;
 
                 case "0":
@@ -164,7 +158,7 @@ reizenLijst.add(reis2);
 
         System.out.println("Beschikbare reizen:");
         for (int i = 0; i < reizenLijst.size(); i++) {
-            System.out.println(i + 1 + ". " + reizenLijst.get(i).vertrekStation() + " -> " + reizenLijst.get(i).aankomstStation() + " | " + reizenLijst.get(i).getVertrekTijd());
+            System.out.println(i + 1 + ". " + reizenLijst.get(i).getVertrekStation() + " -> " + reizenLijst.get(i).getAankomstStation() + " | " + reizenLijst.get(i).getDatumTijd());
         }
 
         System.out.print("Kies een reis (nummer): ");
@@ -193,7 +187,7 @@ reizenLijst.add(reis2);
         }
 
         for (Reis r : reizenLijst) {
-            System.out.println(r.vertrekStation() + " -> " + r.aankomstStation() + " | " + r.getVertrekTijd());
+            System.out.println(r.getVertrekStation() + " -> " + r.getAankomstStation() + " | " + r.getDatumTijd());
         }
     }
 
@@ -209,7 +203,7 @@ reizenLijst.add(reis2);
 
         Personeel p = new Personeel(
                 inloggenPassagier().getVoornaam(), inloggenPassagier().getAchternaam(),
-                inloggenPassagier().getRijksregisternummer(), inloggenPassagier().getGeboortedatum(), inloggenPassagier().getEmail(), inloggenPersoneel().getFunctie());
+                inloggenPassagier().getRijksregisternummer(),inloggenPersoneel().getGeboortedatum(), inloggenPassagier().getEmail(), inloggenPersoneel().getFunctie());
         personeelLijst.add(p);
 
         System.out.println("Personeel geregistreerd: " + v);
@@ -230,7 +224,7 @@ reizenLijst.add(reis2);
         return null;
     }
 
-    private static void personeelMenu(Personeel p) throws IOException{
+    private static void personeelMenu(Personeel p) throws Exception {
         while (true) {
             System.out.println("\n--- PERSONEEL MENU ---");
             System.out.println("Ingelogd als: " + p.getVoornaam());
@@ -251,7 +245,7 @@ reizenLijst.add(reis2);
                     } else {
                         System.out.println("Welke reis? (nummer)");
                         for (int i = 0; i < reizenLijst.size(); i++) {
-                            System.out.println(i + 1 + ". " + reizenLijst.get(i).vertrekStation() + " -> " + reizenLijst.get(i).aankomstStation());
+                            System.out.println(i + 1 + ". " + reizenLijst.get(i).getVertrekStation() + " -> " + reizenLijst.get(i).getAankomstStation());
                         }
                         int idx = Integer.parseInt(scanner.nextLine()) - 1;
                         if (idx >= 0 && idx < reizenLijst.size()) {
@@ -271,5 +265,9 @@ reizenLijst.add(reis2);
             }
         }
     }
+
+    public Reis getReis1() {
+        return reis1;
     }
+}
 
