@@ -13,4 +13,17 @@ Het project focust op het beheer van passagiers, personeel, treinen, reizen en t
 - Tickets verkopen en raadplegen
 - Boardinglijst afdrukken naar tekstbestand
 
-CHATGPT gebruikt voor methode aan te maken om boardingslijst af te drukken (PrintWriter, DateTimeFormatter)
+
+Opmerkingen:
+
+Boardinglijst bevat alleen stations en datum, geen namen of e-mails
+
+Project gebruikt Java List voor opslag van passagiers, tickets en reizen
+
+Methodes die bestanden schrijven gebruiken throws IOException 
+
+Tijdens de ontwikkeling is de automatische codecontrole van IntelliJ IDEA gebruikt om fouten en waarschuwingen te controleren
+
+CHATGPT gebruikt voor methode aan te maken om boardingslijst af te drukken (PrintWriter)
+
+
