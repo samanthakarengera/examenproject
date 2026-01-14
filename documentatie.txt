@@ -1,0 +1,87 @@
+Euromoon – Documentatie
+
+  
+- @author: Samantha Karengera.
+- @version: versie 1.0.
+
+Classes
+-------
+
+1. Passagier
+Beschrijving:
+Bevat alle informatie van een passagier en een eventueel ticket.
+
+Constructor:
+Passagier(String voornaam, String achternaam, String email, String rijksregisternummer, LocalDate geboortedatum)
+- Maakt een nieuwe passagier aan met persoonlijke gegevens.
+
+Belangrijke methodes:
+void setTicket(Ticket t)
+- Koppelt een ticket aan deze passagier.
+
+2. Ticket
+Beschrijving:
+Koppelt een passagier aan een specifieke reis.
+
+Constructor:
+Ticket(Passagier p, Reis r)
+- Maakt een ticket voor de gegeven passagier en reis.
+
+Belangrijke methodes:
+Passagier getPassagier()
+Reis getReis()
+- Haalt de passagier of reis van dit ticket op.
+
+3. Trein
+Beschrijving:
+Bevat informatie over een locomotief, wagons en capaciteit.
+
+Constructor:
+Trein(String locomotiefType, int aantalWagons, int maxPersonen)
+- Maakt een trein aan met type locomotief, aantal wagons en maximale capaciteit.
+- Controleert dat het maximale aantal wagons niet overschreden wordt.
+
+Belangrijke methodes:
+boolean voegWagonToe()
+int getMaxPersonen()
+- voegWagonToe(): voegt een wagon toe als het maximum nog niet bereikt is.
+- getMaxPersonen(): haalt het maximum aantal personen op.
+
+4. Reis
+Beschrijving:
+Beheert een enkele reis, inclusief tickets en boardinglijst.
+
+Constructor:
+Reis(String vertrekStation, String aankomstStation, String datumTijd)
+- Maakt een nieuwe reis aan tussen twee stations op een specifieke datum en tijd.
+
+Belangrijke methodes:
+void voegTicketToe(Ticket t)
+List<Ticket> getTickets()
+void printBoardinglijst() throws Exception
+- voegTicketToe: voegt een ticket toe aan deze reis.
+- getTickets: retourneert de lijst van tickets.
+- printBoardinglijst: slaat een textbestand op met stations, datum en aantal tickets.
+
+5. Main
+Beschrijving:
+Hoofdprogramma van Euromoon met menu voor interactie met passagiers en personeel.
+
+Belangrijke methodes:
+public static void main(String[] args) throws Exception
+- Start de applicatie en toont het hoofdmenu met opties:
+  1. Passagier registreren
+  2. Passagier inloggen
+  3. Beschikbare reizen bekijken
+  4. Reis boeken / Ticket aanmaken
+  5. Ticket bekijken
+  6. Boardinglijst genereren
+
+Opmerkingen:
+- Alle getters/setters zijn aanwezig maar worden niet apart gedocumenteerd.
+- Boardinglijst is minimalistisch: alleen stations, datum en aantal tickets.
+- IntelliJ automatische codecontrole is gebruikt.
+
+
+
+- IntelliJ genereert HTML-documentatie die de structuur van het project toont.
